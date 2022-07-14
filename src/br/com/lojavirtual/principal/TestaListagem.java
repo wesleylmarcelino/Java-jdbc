@@ -1,22 +1,17 @@
 package br.com.lojavirtual.principal;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
+import br.com.lojavirtual.conexaoDB.ConnectionFactory;
 
 public class TestaListagem {
 
 	public static void main(String[] args) throws SQLException {
 		
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost"
-				+ "/loja_virtual?useTimezone=true&serverTimezone=UTC", 
-				"root", "995612");
-		
-		System.out.println("Conectou!!");
-		System.out.println("---------------------------------");
+		ConnectionFactory connectionFactory = new ConnectionFactory();
+		Connection connection = connectionFactory.recuperaConexao();
 		
 		Statement stm = connection.createStatement();
 		stm.execute("select id, nome, descricao from produto");
