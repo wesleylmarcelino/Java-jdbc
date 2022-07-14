@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//Factory Pattern
 public class ConnectionFactory {
 
 	public Connection recuperaConexao() throws SQLException {
