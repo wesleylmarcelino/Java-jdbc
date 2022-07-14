@@ -19,5 +19,7 @@ public class TestaRemocao {
 		Integer linhasAfetadas = stm.getUpdateCount();
 		
 		System.out.println("Total de linhas afetadas: " + linhasAfetadas);
+		
+		connection.close();
 	}
 }
