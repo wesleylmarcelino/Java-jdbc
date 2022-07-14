@@ -1,9 +1,9 @@
 package br.com.lojavirtual.principal;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import br.com.lojavirtual.conexaoDB.ConnectionFactory;
 
 public class TestaListagem {
@@ -13,8 +13,8 @@ public class TestaListagem {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.recuperaConexao();
 		
-		Statement stm = connection.createStatement();
-		stm.execute("select id, nome, descricao from produto");
+		PreparedStatement stm = connection.prepareStatement("select id, nome, descricao from produto");
+		stm.execute();
 		
 		ResultSet rst = stm.getResultSet();
 		

@@ -11,6 +11,8 @@ import br.com.lojavirtual.conexaoDB.ConnectionFactory;
 public class TestaInsercaoComParametro {
 
 	public static void main(String[] args) throws SQLException {
+		//tratativa de sql injection
+		
 		
 		String nome = "mouse";
 		String descricao = "mouse sem fio";

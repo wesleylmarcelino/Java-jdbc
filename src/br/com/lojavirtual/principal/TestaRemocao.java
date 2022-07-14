@@ -1,9 +1,8 @@
 package br.com.lojavirtual.principal;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 import br.com.lojavirtual.conexaoDB.ConnectionFactory;
 
 public class TestaRemocao {
@@ -13,8 +12,9 @@ public class TestaRemocao {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.recuperaConexao();
 		
-		Statement stm = connection.createStatement();
-		stm.execute("delete from produto where id > 2");
+		PreparedStatement stm = connection.prepareStatement("delete from produto where id > ?");
+		stm.setInt(1, 2);
+		stm.execute();
 		
 		Integer linhasAfetadas = stm.getUpdateCount();
 		
