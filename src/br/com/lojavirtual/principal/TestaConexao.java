@@ -1,4 +1,4 @@
-package principal;
+package br.com.lojavirtual.principal;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
